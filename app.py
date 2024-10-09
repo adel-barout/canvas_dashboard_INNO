@@ -17,6 +17,20 @@ def main():
     for directory in directories_list:
         print(directory)
     return send_from_directory(directories_list[0], 'index.html')
+
+# login requests
+@app.route("/login")
+def login():
+    return send_from_directory('login', 'index.html')
+
+@app.route('/login/<path:filename>')
+def serve_login_files(filename):
+    return send_from_directory('login', filename)
+
+@app.route('/login/images/<path:filename>')
+def serve_login_images(filename):
+    return send_from_directory('login/images', filename)
+
 @app.route("/<path:filename>")
 def main_serve(filename):
     # Use glob to find all HTML files matching the pattern
