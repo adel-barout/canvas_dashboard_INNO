@@ -1,9 +1,14 @@
 import glob
 import os
+from functools import wraps
 
-from flask import Flask, send_from_directory, request
+from flask import Flask, send_from_directory, request, redirect, session, jsonify, make_response
+from keycloak import KeycloakAuthenticationError
+
+from keycloak_config import keycloak_openid
 
 app = Flask(__name__)
+app.secret_key = 'your_random_generated_secret_key' # Change this!
 
 @app.route("/")
 def main():
@@ -124,6 +129,55 @@ def serve_plotly(filename):
 
     print(f"Full URL Path: {directories_list[0] + new_path} - {filez}")
     return send_from_directory(directories_list[0] + new_path, filez)
+
+
+
+
+@app.route('/auth/login', methods=['POST'])
+def login():
+    data = request.json
+    username = data.get('username')
+    password = data.get('password')
+
+    try:
+        # Vraag een token aan bij Keycloak met de inloggegevens
+        token = keycloak_openid.token(username, password)
+
+        # Zet de token in de sessie (optioneel, alleen als je server-side sessies wilt gebruiken)
+        session['token'] = token
+
+        # Stuur de tokens terug naar de frontend
+        return jsonify({
+            'message': 'Login successful',
+            'access_token': token['access_token'],
+            'refresh_token': token.get('refresh_token'),
+            'id_token': token.get('id_token')
+        }), 200
+
+    except KeycloakAuthenticationError:
+        # Fout bij authenticatie, stuur een foutmelding terug
+        return jsonify({'message': 'Invalid username or password'}), 401
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        token = session.get('token', {}).get('access_token')
+        if not token:
+            return jsonify({'message': 'Login required'}), 401
+        try:
+            # Verifieer het token met Keycloak
+            user_info = keycloak_openid.userinfo(token)
+            request.user = user_info
+        except KeycloakAuthenticationError:
+            return jsonify({'message': 'Invalid token'}), 401
+        return f(*args, **kwargs)
+    return decorated_function
+
+@app.route('/protected')
+@login_required
+def protected():
+    return f"Welcome, {request.user['preferred_username']}! You are authenticated."
+
 
 if __name__ == '__main__':
     app.run(debug=True)
