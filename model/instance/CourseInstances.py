@@ -2,7 +2,6 @@ from model.instance.Event import Event
 from model.instance.Instance import Instance
 from model.instance.CourseCategory import CourseCatergory
 
-
 class CourseInstances:
     def __init__(self, current_instance):
         self.current_instance = current_instance
@@ -52,11 +51,11 @@ class CourseInstances:
     def get_test_path(self):
         return CourseInstances.get_project_path(self.current_instance) + "test//"
 
-    def get_student_path(self):
-        return CourseInstances.get_project_path(self.current_instance) + "dashboard_" + self.current_instance + "//students//"
+    def get_plot_path(self):
+        return CourseInstances.get_project_path(self.current_instance) + "dashboard_" + self.current_instance + "//plotly//"
 
     def get_html_path(self):
-        return CourseInstances.get_project_path(self.current_instance) + "dashboard_" + self.current_instance + "//"
+        return CourseInstances.get_project_path(self.current_instance) +"dashboard_" + self.current_instance + "//"
 
     def get_start_file_name(self):
         return CourseInstances.get_project_path(self.current_instance) + "start_" + self.current_instance + ".json"

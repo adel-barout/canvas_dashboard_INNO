@@ -16,7 +16,7 @@ def get_submitted_at(item):
     return item.submitted_at
 
 
-def count_student(a_instances, a_course, a_student_totals, a_student):
+def count_student(a_course, a_student_totals, a_student):
     peil = a_student.progress
     # print(a_student.name, peil)
     a_student_totals['actual_progress']['overall'][peil] += 1
@@ -24,12 +24,9 @@ def count_student(a_instances, a_course, a_student_totals, a_student):
         add_total(a_student_totals['perspectives'][l_perspective.name]['count'], int(student_total(l_perspective)))
     if a_course.level_moments is not None:
         for peil_label in a_course.level_moments.moments:
-            if a_instances.is_instance_of("inno_courses"):
-                submission = a_student.get_peilmoment_submission_by_query([peil_label, "overall"])
-            else:
-                submission = a_student.get_peilmoment_submission_by_query([peil_label])
-            if submission is not None:
-                a_student_totals["level_moments"][peil_label]['overall'][int(submission.score)] += 1
+            submission = a_student.get_peilmoment_submission_by_query([peil_label, "overall"])
+            if submission:
+                a_student_totals["level_moments"][peil_label]['overall'][submission.score] += 1
             else:
                 a_student_totals["level_moments"][peil_label]['overall'][-1] += 1
 
@@ -50,7 +47,7 @@ def check_for_late(a_instances, a_course, a_student_totals, a_student, a_submiss
             if a_instances.is_instance_of("inno_courses"):
                 l_selector = a_student.role
             else:
-                # print("BT83 Group id", a_student.group_id)
+                print("BT83 Group id", a_student.group_id)
                 group = a_course.find_student_group(a_student.group_id)
                 l_selector = group.name
         late_days = a_actual_day - a_submission.submitted_day
@@ -67,7 +64,7 @@ def check_for_late(a_instances, a_course, a_student_totals, a_student, a_submiss
 
 def build_totals(a_instances, a_start, a_course, a_results, a_student_totals):
     for l_student in a_results.students:
-        count_student(a_instances, a_course, a_student_totals, l_student)
+        count_student(a_course, a_student_totals, l_student)
         for l_perspective in l_student.perspectives.values():
             for submission_sequence in l_perspective.submission_sequences:
                 for submission in submission_sequence.submissions:

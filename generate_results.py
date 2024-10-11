@@ -2,7 +2,6 @@ import sys
 from canvasapi import Canvas
 import json
 
-from generate_progress import proces_progress
 from lib.file import read_start, read_course, read_course_instance, read_progress
 from lib.lib_attendance import process_attendance
 from lib.lib_progress import get_progress, get_overall_progress, get_attendance_progress
@@ -34,8 +33,8 @@ def main(instance_name):
     for student in course.students:
         print("GR05 -", student.name, student.number)
     results.students = course.students
-    # for student in results.students:
-    #     print("GR07 -", student.name, student.number)
+    for student in results.students:
+        print("GR07 -", student.name, student.number)
     read_submissions(canvas_course, start, course, results, True)
     for student in results.students:
         for perspective in student.perspectives.values():
@@ -59,11 +58,33 @@ def main(instance_name):
 
     results.submission_count, results.not_graded_count = count_graded(results)
 
-    # with open(instances.get_result_file_name(instances.current_instance), 'w') as f:
-    #     dict_result = results.to_json(["perspectives"])
-    #     json.dump(dict_result, f, indent=2)
+    with open(instances.get_result_file_name(instances.current_instance), 'w') as f:
+        dict_result = results.to_json(["perspectives"])
+        json.dump(dict_result, f, indent=2)
+
     progress_history = read_progress(instances.get_progress_file_name(instances.current_instance))
-    proces_progress(start, course, results, progress_history)
+    progress_day = ProgressDay(results.actual_day, course.perspectives.keys())
+
+    # Bepaal voortgang per perspectief
+    for student in results.students:
+        if start.attendance is not None:
+            get_attendance_progress(course.attendance, results, student.attendance_perspective)
+            progress_day.attendance[str(student.attendance_perspective.progress)] += 1
+        for perspective in student.perspectives.values():
+            # print("GR20 -", student.name, perspective.name)
+            get_progress(course, perspective)
+            progress_day.perspective[perspective.name][str(perspective.progress)] += 1
+    # Bepaal de totaal voortgang
+    for student in results.students:
+        perspectives = []
+        for perspective in student.perspectives.values():
+            perspectives.append(perspective.progress)
+        progress = get_overall_progress(perspectives)
+        # print(student.name, perspectives, progress )
+        student.progress = progress
+        progress_day.progress[str(progress)] += 1
+    progress_history.append_day(progress_day)
+
     # progress_history = generate_history(results)
 
     with open(instances.get_progress_file_name(instances.current_instance), 'w') as f:

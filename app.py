@@ -129,6 +129,11 @@ def serve_login_files(filename):
 def serve_login_images(filename):
     return send_from_directory('login/images', filename)
 
+@app.route('/login/js/<path:filename>')
+def serve_login_js(filename):
+    return send_from_directory('login/js', filename)
+
+
 
 # Login Requests
 

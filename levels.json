@@ -111,26 +111,26 @@
   },
   "bin2": {
     "-2": {
-      "label": "Nog niet beoordeeld",
-      "color": "#E97132"
+      "label": "Leeg",
+      "color": "cornflowerblue"
     },
     "-1": {
-      "label": "Voor deadline",
-      "color": "#BFBFBF"
+      "label": "Leeg",
+      "color": "#aaaaaa"
     },
     "0": {
       "label": "Niet zichtbaar",
-      "color": "#000000",
+      "color": "#f25829",
       "fraction": 0.0
     },
     "1": {
       "label": "Niet voldaan",
-      "color": "#0070C0",
+      "color": "#f2a529",
       "fraction": 0.99
     },
     "2": {
       "label": "Voldaan",
-      "color": "#3C7D22",
+      "color": "#2bad4e",
       "fraction": 1.0
     }
   },

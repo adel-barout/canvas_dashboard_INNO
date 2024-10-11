@@ -1,0 +1,99 @@
+{
+  "api_key": "11760~zNF3tUeY96n7JZu4wTuT8xXwPLDfKtxXh4uamEvfAkVwTfuEEDZK63F7ExyRMBNN",
+  "canvas_course_id": "2600",
+  "progress_levels": "progress",
+  "grade_levels": "grade",
+  "projects_groep_name": "Project Groups",
+  "slb_groep_name": "",
+  "start_date": "2024-09-02T00:00:00Z",
+  "end_date": "2025-01-31T23:59:59Z",
+  "target_path": "onedrive",
+  "target_slb_path": "onedrive",
+  "attendance_report": "",
+  "perspectives": {
+    "team": {
+      "name": "team",
+      "title": "Team",
+      "levels": "samen",
+      "show_points": false,
+      "show_flow": true
+    },
+    "gilde": {
+      "name": "gilde",
+      "title": "Gilde",
+      "levels": "samen5",
+      "show_points": false,
+      "show_flow": true
+    },
+    "kennis": {
+      "name": "kennis",
+      "title": "Kennis",
+      "levels": "niveau",
+      "show_points": true,
+      "show_flow": false
+    }
+  },
+  "roles": [
+    {
+      "short": "AI",
+      "name": "AI - Engineer",
+      "btn_color": "border-warning",
+      "assignment_groups": [],
+      "students": []
+    },
+    {
+      "short": "BIM",
+      "name": "Business Analist",
+      "btn_color": "border-success",
+      "assignment_groups": [],
+      "students": []
+    },
+    {
+      "short": "CSC_C",
+      "name": "Cloud",
+      "btn_color": "border-light",
+      "assignment_groups": [],
+      "students": []
+    },
+    {
+      "short": "CSC_S",
+      "name": "Security",
+      "btn_color": "border-danger",
+      "assignment_groups": [],
+      "students": []
+    },
+    {
+      "short": "SD_B",
+      "name": "Back-end developer",
+      "btn_color": "border-dark",
+      "assignment_groups": [],
+      "students": []
+    },
+    {
+      "short": "SD_F",
+      "name": "Front-end developer",
+      "btn_color": "border-primary",
+      "assignment_groups": [],
+      "students": []
+    },
+    {
+      "short": "TI",
+      "name": "Embedded - Engineer",
+      "btn_color": "border-info",
+      "assignment_groups": [],
+      "students": []
+    }
+  ],
+  "level_moments": {
+    "name": "level_moments",
+    "title": "Peilmomenten",
+    "levels": "progress",
+    "moments": [
+      "Sprint 4",
+      "Sprint 7",
+      "Beoordeling"
+    ],
+    "assignment_groups": [
+    ]
+  }
+}

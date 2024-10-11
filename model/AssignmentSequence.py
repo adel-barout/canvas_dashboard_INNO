@@ -1,5 +1,4 @@
 from model.Assignment import Assignment
-from model.LearningOutcome import LearningOutcome
 
 
 class AssignmentSequence:
@@ -9,7 +8,6 @@ class AssignmentSequence:
         self.grading_type = grading_type
         self.points = points
         self.assignments = []
-        self.learning_outcomes = []
 
     def __str__(self):
         return f'AssignmentSequence({self.name}, {self.tag}, {self.grading_type}, {self.points})'
@@ -38,10 +36,6 @@ class AssignmentSequence:
                 last_passed_assignment = assignment
         return last_passed_assignment
 
-    def add_learning_outcome(self, learning_outcome_id):
-        if learning_outcome_id not in self.learning_outcomes:
-            self.learning_outcomes.append(learning_outcome_id)
-
     def to_json(self):
         return {
             'name': self.name,
@@ -49,7 +43,6 @@ class AssignmentSequence:
             'grading_type': self.grading_type,
             'points': int(self.points),
             'assignments': list(map(lambda a: a.to_json(), self.assignments)),
-            'learning_outcomes': self.learning_outcomes
         }
 
     @staticmethod
@@ -57,6 +50,4 @@ class AssignmentSequence:
         new = AssignmentSequence(data_dict['name'], data_dict['tag'], data_dict['grading_type'], data_dict['points'])
         if 'assignments' in data_dict.keys():
             new.assignments = list(map(lambda a: Assignment.from_dict(a), data_dict['assignments']))
-        if 'learning_outcomes' in data_dict:
-            new.learning_outcomes = data_dict['learning_outcomes']
         return new

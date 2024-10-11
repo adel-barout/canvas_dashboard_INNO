@@ -59,7 +59,6 @@ class CourseConfig:
             'days_in_semester': self.days_in_semester,
             'sections': list(map(lambda s: s.to_json(), self.sections))
         }
-        # print("CC10 -", self.attendance)
         if self.attendance is not None:
             dict_result['attendance'] = self.attendance.to_json()
         else:
@@ -137,13 +136,6 @@ class CourseConfig:
                 for assignment in assignment_sequence.assignments:
                     if assignment.id == assignment_id:
                         return assignment
-        return None
-
-    def find_assignment_sequence(self, assignment_sequence_tag):
-        for assignment_group in self.assignment_groups:
-            for assignment_sequence in assignment_group.assignment_sequences:
-                if assignment_sequence.tag == assignment_sequence_tag:
-                    return assignment_sequence
         return None
 
     def find_student(self, student_id):
