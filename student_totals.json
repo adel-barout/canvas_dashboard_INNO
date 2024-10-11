@@ -1,0 +1,366 @@
+{
+  "student_count": 0,
+  "perspectives": {
+    "team": {
+      "count": [
+        0
+      ],
+      "pending": {},
+      "late": {},
+      "to_late": {},
+      "list": {}
+    },
+    "gilde": {
+      "count": [
+        0
+      ],
+      "pending": {
+        "AI": 0,
+        "BIM": 0,
+        "CSC_C": 0,
+        "CSC_S": 0,
+        "SD_B": 0,
+        "SD_F": 0,
+        "TI": 0
+      },
+      "late": {
+        "AI": 0,
+        "BIM": 0,
+        "CSC_C": 0,
+        "CSC_S": 0,
+        "SD_B": 0,
+        "SD_F": 0,
+        "TI": 0
+      },
+      "to_late": {
+        "AI": 0,
+        "BIM": 0,
+        "CSC_C": 0,
+        "CSC_S": 0,
+        "SD_B": 0,
+        "SD_F": 0,
+        "TI": 0
+      },
+      "list": {
+        "AI": [],
+        "BIM": [],
+        "CSC_C": [],
+        "CSC_S": [],
+        "SD_B": [],
+        "SD_F": [],
+        "TI": []
+      }
+    },
+    "kennis": {
+      "count": [
+        175
+      ],
+      "pending": {
+        "AI": 0,
+        "BIM": 4,
+        "CSC_C": 0,
+        "CSC_S": 0,
+        "SD_B": 0,
+        "SD_F": 0,
+        "TI": 0
+      },
+      "late": {
+        "AI": 0,
+        "BIM": 0,
+        "CSC_C": 0,
+        "CSC_S": 0,
+        "SD_B": 0,
+        "SD_F": 0,
+        "TI": 0
+      },
+      "to_late": {
+        "AI": 0,
+        "BIM": 0,
+        "CSC_C": 0,
+        "CSC_S": 0,
+        "SD_B": 0,
+        "SD_F": 0,
+        "TI": 0
+      },
+      "list": {
+        "AI": [],
+        "BIM": [
+          {
+            "id": 19294274,
+            "assignment_group_id": 83195,
+            "assignment_id": 328144,
+            "student_id": 51595,
+            "assignment_name": "BIM BUAN -  opdracht 4 | Solution Evaluation ",
+            "assignment_date": "2025-01-31T23:59:59Z",
+            "assignment_day": 153,
+            "submitted_date": "2024-09-18T09:57:09Z",
+            "submitted_day": 17,
+            "graded": false,
+            "grader_name": "Adel Barout",
+            "graded_date": "2024-09-18T09:57:23Z",
+            "score": 25.0,
+            "points": 25,
+            "flow": 0.0,
+            "comments": [
+              {
+                "author_id": 0,
+                "author_name": "Systeem",
+                "date": "2024-09-18T12:00:42Z",
+                "comment": "WARNING rubrics defined in assignment [BIM BUAN -  opdracht 4 | Solution Evaluation ] but not used in submission for student Jeroen Cabri. Teacher action required."
+              }
+            ],
+            "rubrics": []
+          },
+          {
+            "id": 19294275,
+            "assignment_group_id": 83195,
+            "assignment_id": 328145,
+            "student_id": 51595,
+            "assignment_name": "BIM BUAN - 1 Strategy analysis | Strategie, BMC, VPC, KSF, KPI, Jaarcijfers",
+            "assignment_date": "2025-01-31T23:59:59Z",
+            "assignment_day": 153,
+            "submitted_date": "2024-09-18T09:34:26Z",
+            "submitted_day": 17,
+            "graded": false,
+            "grader_name": "Ayoub Ahdoudi",
+            "graded_date": "2024-09-18T09:46:56Z",
+            "score": 0.0,
+            "points": 25,
+            "flow": 0.0,
+            "comments": [
+              {
+                "author_id": 217262,
+                "author_name": "Ayoub Ahdoudi",
+                "date": "2024-09-18T09:47:56Z",
+                "comment": "MoOi"
+              },
+              {
+                "author_id": 0,
+                "author_name": "Systeem",
+                "date": "2024-09-18T12:00:42Z",
+                "comment": "Fout in een criterium_score actie vereist van docent voor student Jeroen Cabri, canvas_submission ('_9574', {'rating_id': 'blank_2', 'comments': ''})"
+              }
+            ],
+            "rubrics": [
+              {
+                "id": "_9574",
+                "rating_id": "blank_2",
+                "score": 0,
+                "comment": ""
+              }
+            ]
+          },
+          {
+            "id": 19294276,
+            "assignment_group_id": 83195,
+            "assignment_id": 328146,
+            "student_id": 51595,
+            "assignment_name": "BIM BUAN - 2 Elicitation and Collaboration",
+            "assignment_date": "2025-01-31T23:59:59Z",
+            "assignment_day": 153,
+            "submitted_date": "2024-09-18T09:55:13Z",
+            "submitted_day": 17,
+            "graded": false,
+            "grader_name": "Adel Barout",
+            "graded_date": "2024-09-18T09:55:29Z",
+            "score": 25.0,
+            "points": 25,
+            "flow": 0.0,
+            "comments": [
+              {
+                "author_id": 248788,
+                "author_name": "Adel Barout",
+                "date": "2024-09-18T09:56:01Z",
+                "comment": "h"
+              },
+              {
+                "author_id": 0,
+                "author_name": "Systeem",
+                "date": "2024-09-18T12:00:42Z",
+                "comment": "WARNING rubrics defined in assignment [BIM BUAN - 2 Elicitation and Collaboration] but not used in submission for student Jeroen Cabri. Teacher action required."
+              }
+            ],
+            "rubrics": []
+          },
+          {
+            "id": 19294277,
+            "assignment_group_id": 83195,
+            "assignment_id": 328147,
+            "student_id": 51595,
+            "assignment_name": "BIM BUAN - 3 Requirements Analysis and Design definition",
+            "assignment_date": "2025-01-31T23:59:59Z",
+            "assignment_day": 153,
+            "submitted_date": "2024-09-18T09:56:13Z",
+            "submitted_day": 17,
+            "graded": false,
+            "grader_name": "Adel Barout",
+            "graded_date": "2024-09-18T09:56:46Z",
+            "score": 25.0,
+            "points": 25,
+            "flow": 0.0,
+            "comments": [
+              {
+                "author_id": 0,
+                "author_name": "Systeem",
+                "date": "2024-09-18T12:00:43Z",
+                "comment": "WARNING rubrics defined in assignment [BIM BUAN - 3 Requirements Analysis and Design definition] but not used in submission for student Jeroen Cabri. Teacher action required."
+              }
+            ],
+            "rubrics": []
+          }
+        ],
+        "CSC_C": [],
+        "CSC_S": [],
+        "SD_B": [],
+        "SD_F": [],
+        "TI": []
+      }
+    }
+  },
+  "level_moments": {
+    "Sprint 4": {
+      "overall": {
+        "-2": 0,
+        "-1": 1,
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "team": {
+        "-2": 0,
+        "-1": 0,
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "gilde": {
+        "-2": 0,
+        "-1": 0,
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "kennis": {
+        "-2": 0,
+        "-1": 0,
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "Sprint 7": {
+      "overall": {
+        "-2": 0,
+        "-1": 1,
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "team": {
+        "-2": 0,
+        "-1": 0,
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "gilde": {
+        "-2": 0,
+        "-1": 0,
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "kennis": {
+        "-2": 0,
+        "-1": 0,
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "Beoordeling": {
+      "overall": {
+        "-2": 0,
+        "-1": 1,
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "team": {
+        "-2": 0,
+        "-1": 0,
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "gilde": {
+        "-2": 0,
+        "-1": 0,
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "kennis": {
+        "-2": 0,
+        "-1": 0,
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    }
+  },
+  "actual_progress": {
+    "overall": {
+      "-2": 0,
+      "-1": 1,
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "team": {
+      "-2": 0,
+      "-1": 0,
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "gilde": {
+      "-2": 0,
+      "-1": 0,
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "kennis": {
+      "-2": 0,
+      "-1": 0,
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "late": {
+    "count": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

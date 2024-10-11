@@ -1,0 +1,432 @@
+{
+  "id": "2600",
+  "name": "TEST - Innovation Semester",
+  "actual_date": "2024-10-02T12:45:55Z",
+  "actual_day": 31,
+  "submission_count": 10,
+  "not_graded_count": 4,
+  "students": [
+    {
+      "name": "Jeroen Cabri",
+      "id": 51595,
+      "number": "1738609",
+      "sortable_name": "Cabri, Jeroen",
+      "group_id": 92606,
+      "coach": 0,
+      "email": "",
+      "site": "",
+      "role": "BIM",
+      "progress": -1,
+      "perspectives": {
+        "team": {
+          "name": "team",
+          "progress": 0,
+          "sum_score": 0.0,
+          "last_score": 22,
+          "assignment_groups": [
+            83192
+          ],
+          "submission_sequences": [
+            {
+              "name": "Startdocument",
+              "tag": "328239",
+              "grading_type": "pass_fail",
+              "points": 6,
+              "flow": 0,
+              "submissions": [
+                {
+                  "id": 0,
+                  "assignment_group_id": 83192,
+                  "assignment_id": 328239,
+                  "student_id": 0,
+                  "assignment_name": "Startdocument",
+                  "assignment_date": "2024-09-06T23:59:59Z",
+                  "assignment_day": 5,
+                  "submitted_date": "2024-09-06T23:59:59Z",
+                  "submitted_day": 5,
+                  "graded": true,
+                  "grader_name": "System",
+                  "graded_date": "2024-09-06T23:59:59Z",
+                  "score": 0.0,
+                  "points": 6,
+                  "flow": 0.0,
+                  "comments": [
+                    {
+                      "author_id": 0,
+                      "author_name": "System",
+                      "date": "2024-09-06T23:59:59Z",
+                      "comment": "Niets ingeleverd voor de deadline"
+                    }
+                  ],
+                  "rubrics": []
+                }
+              ]
+            },
+            {
+              "name": "Sprint 1 - Planning",
+              "tag": "328231",
+              "grading_type": "pass_fail",
+              "points": 3,
+              "flow": 0,
+              "submissions": [
+                {
+                  "id": 0,
+                  "assignment_group_id": 83192,
+                  "assignment_id": 328231,
+                  "student_id": 0,
+                  "assignment_name": "Sprint 1 - Planning",
+                  "assignment_date": "2024-09-10T23:59:59Z",
+                  "assignment_day": 9,
+                  "submitted_date": "2024-09-10T23:59:59Z",
+                  "submitted_day": 9,
+                  "graded": true,
+                  "grader_name": "System",
+                  "graded_date": "2024-09-10T23:59:59Z",
+                  "score": 0.0,
+                  "points": 3,
+                  "flow": 0.0,
+                  "comments": [
+                    {
+                      "author_id": 0,
+                      "author_name": "System",
+                      "date": "2024-09-10T23:59:59Z",
+                      "comment": "Niets ingeleverd voor de deadline"
+                    }
+                  ],
+                  "rubrics": []
+                }
+              ]
+            },
+            {
+              "name": "Sprint 1 - Verslag",
+              "tag": "328232",
+              "grading_type": "pass_fail",
+              "points": 17,
+              "flow": 0,
+              "submissions": [
+                {
+                  "id": 0,
+                  "assignment_group_id": 83192,
+                  "assignment_id": 328232,
+                  "student_id": 0,
+                  "assignment_name": "Sprint 1 - Verslag",
+                  "assignment_date": "2024-09-23T23:59:59Z",
+                  "assignment_day": 22,
+                  "submitted_date": "2024-09-23T23:59:59Z",
+                  "submitted_day": 22,
+                  "graded": true,
+                  "grader_name": "System",
+                  "graded_date": "2024-09-23T23:59:59Z",
+                  "score": 0.0,
+                  "points": 17,
+                  "flow": 0.0,
+                  "comments": [
+                    {
+                      "author_id": 0,
+                      "author_name": "System",
+                      "date": "2024-09-23T23:59:59Z",
+                      "comment": "Niets ingeleverd voor de deadline"
+                    }
+                  ],
+                  "rubrics": []
+                }
+              ]
+            }
+          ]
+        },
+        "gilde": {
+          "name": "gilde",
+          "progress": -1,
+          "sum_score": 0,
+          "last_score": 0,
+          "assignment_groups": [
+            83193
+          ],
+          "submission_sequences": []
+        },
+        "kennis": {
+          "name": "kennis",
+          "progress": 1,
+          "sum_score": 100.0,
+          "last_score": 153,
+          "assignment_groups": [
+            83195
+          ],
+          "submission_sequences": [
+            {
+              "name": "BIM BUAN -  opdracht 4 | Solution Evaluation ",
+              "tag": "328144",
+              "grading_type": "points",
+              "points": 25,
+              "flow": 0.5,
+              "submissions": [
+                {
+                  "id": 19294274,
+                  "assignment_group_id": 83195,
+                  "assignment_id": 328144,
+                  "student_id": 51595,
+                  "assignment_name": "BIM BUAN -  opdracht 4 | Solution Evaluation ",
+                  "assignment_date": "2025-02-01T00:59:59Z",
+                  "assignment_day": 153,
+                  "submitted_date": "2024-09-18T11:57:09Z",
+                  "submitted_day": 17,
+                  "graded": false,
+                  "grader_name": "Adel Barout",
+                  "graded_date": "2024-09-18T11:57:23Z",
+                  "score": 25.0,
+                  "points": 25,
+                  "flow": 0.0,
+                  "comments": [
+                    {
+                      "author_id": 0,
+                      "author_name": "Systeem",
+                      "date": "2024-10-02T12:46:06Z",
+                      "comment": "WARNING rubrics defined in assignment [BIM BUAN -  opdracht 4 | Solution Evaluation ] but not used in submission for student Jeroen Cabri. Teacher action required."
+                    }
+                  ],
+                  "rubrics": []
+                }
+              ]
+            },
+            {
+              "name": "BIM BUAN - 1 Strategy analysis | Strategie, BMC, VPC, KSF, KPI, Jaarcijfers",
+              "tag": "328145",
+              "grading_type": "points",
+              "points": 25,
+              "flow": 0.5,
+              "submissions": [
+                {
+                  "id": 19294275,
+                  "assignment_group_id": 83195,
+                  "assignment_id": 328145,
+                  "student_id": 51595,
+                  "assignment_name": "BIM BUAN - 1 Strategy analysis | Strategie, BMC, VPC, KSF, KPI, Jaarcijfers",
+                  "assignment_date": "2025-02-01T00:59:59Z",
+                  "assignment_day": 153,
+                  "submitted_date": "2024-09-18T11:34:26Z",
+                  "submitted_day": 17,
+                  "graded": false,
+                  "grader_name": "Ayoub Ahdoudi",
+                  "graded_date": "2024-09-18T12:19:27Z",
+                  "score": 0.0,
+                  "points": 25,
+                  "flow": 0.0,
+                  "comments": [
+                    {
+                      "author_id": 217262,
+                      "author_name": "Ayoub Ahdoudi",
+                      "date": "2024-09-18T11:47:56Z",
+                      "comment": "MoOi"
+                    },
+                    {
+                      "author_id": 0,
+                      "author_name": "Systeem",
+                      "date": "2024-10-02T12:46:07Z",
+                      "comment": "Fout in een criterium_score actie vereist van docent voor student Jeroen Cabri, canvas_submission ('_9574', {'rating_id': 'blank_2', 'comments': ''})"
+                    }
+                  ],
+                  "rubrics": [
+                    {
+                      "id": "_9574",
+                      "rating_id": "blank_2",
+                      "score": 0,
+                      "comment": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BIM BUAN - 2 Elicitation and Collaboration",
+              "tag": "328146",
+              "grading_type": "points",
+              "points": 25,
+              "flow": 0.5,
+              "submissions": [
+                {
+                  "id": 19294276,
+                  "assignment_group_id": 83195,
+                  "assignment_id": 328146,
+                  "student_id": 51595,
+                  "assignment_name": "BIM BUAN - 2 Elicitation and Collaboration",
+                  "assignment_date": "2025-02-01T00:59:59Z",
+                  "assignment_day": 153,
+                  "submitted_date": "2024-09-18T11:55:13Z",
+                  "submitted_day": 17,
+                  "graded": false,
+                  "grader_name": "Adel Barout",
+                  "graded_date": "2024-09-18T11:55:29Z",
+                  "score": 25.0,
+                  "points": 25,
+                  "flow": 0.0,
+                  "comments": [
+                    {
+                      "author_id": 248788,
+                      "author_name": "Adel Barout",
+                      "date": "2024-09-18T11:56:01Z",
+                      "comment": "h"
+                    },
+                    {
+                      "author_id": 0,
+                      "author_name": "Systeem",
+                      "date": "2024-10-02T12:46:07Z",
+                      "comment": "WARNING rubrics defined in assignment [BIM BUAN - 2 Elicitation and Collaboration] but not used in submission for student Jeroen Cabri. Teacher action required."
+                    }
+                  ],
+                  "rubrics": []
+                }
+              ]
+            },
+            {
+              "name": "BIM BUAN - 3 Requirements Analysis and Design definition",
+              "tag": "328147",
+              "grading_type": "points",
+              "points": 25,
+              "flow": 0.5,
+              "submissions": [
+                {
+                  "id": 19294277,
+                  "assignment_group_id": 83195,
+                  "assignment_id": 328147,
+                  "student_id": 51595,
+                  "assignment_name": "BIM BUAN - 3 Requirements Analysis and Design definition",
+                  "assignment_date": "2025-02-01T00:59:59Z",
+                  "assignment_day": 153,
+                  "submitted_date": "2024-09-18T11:56:13Z",
+                  "submitted_day": 17,
+                  "graded": false,
+                  "grader_name": "Adel Barout",
+                  "graded_date": "2024-09-18T11:56:46Z",
+                  "score": 25.0,
+                  "points": 25,
+                  "flow": 0.0,
+                  "comments": [
+                    {
+                      "author_id": 0,
+                      "author_name": "Systeem",
+                      "date": "2024-10-02T12:46:07Z",
+                      "comment": "WARNING rubrics defined in assignment [BIM BUAN - 3 Requirements Analysis and Design definition] but not used in submission for student Jeroen Cabri. Teacher action required."
+                    }
+                  ],
+                  "rubrics": []
+                }
+              ]
+            },
+            {
+              "name": "BIM DITR - Opdracht 1 (week 11-13) : BMC, VPC , digitale strategie, data gedreven werken, slimme digitale processen Medux",
+              "tag": "328148",
+              "grading_type": "points",
+              "points": 37,
+              "flow": 0.1,
+              "submissions": [
+                {
+                  "id": 19294278,
+                  "assignment_group_id": 83195,
+                  "assignment_id": 328148,
+                  "student_id": 51595,
+                  "assignment_name": "BIM DITR - Opdracht 1 (week 11-13) : BMC, VPC , digitale strategie, data gedreven werken, slimme digitale processen Medux",
+                  "assignment_date": "2025-02-01T00:59:59Z",
+                  "assignment_day": 153,
+                  "submitted_date": "2024-09-18T11:58:38Z",
+                  "submitted_day": 17,
+                  "graded": true,
+                  "grader_name": "Adel Barout",
+                  "graded_date": "2024-09-18T11:58:09Z",
+                  "score": 37.5,
+                  "points": 37,
+                  "flow": 0.0,
+                  "comments": [
+                    {
+                      "author_id": 248788,
+                      "author_name": "Adel Barout",
+                      "date": "2024-09-18T11:58:49Z",
+                      "comment": "gr"
+                    }
+                  ],
+                  "rubrics": []
+                }
+              ]
+            },
+            {
+              "name": "BIM DITR - Opdracht 2 (week 14-16) - Digitale doorbraken Medux: briljante customer experience, wendbare organisatie, digitale business modellen",
+              "tag": "328150",
+              "grading_type": "points",
+              "points": 37,
+              "flow": 0.21,
+              "submissions": [
+                {
+                  "id": 19294280,
+                  "assignment_group_id": 83195,
+                  "assignment_id": 328150,
+                  "student_id": 51595,
+                  "assignment_name": "BIM DITR - Opdracht 2 (week 14-16) - Digitale doorbraken Medux: briljante customer experience, wendbare organisatie, digitale business modellen",
+                  "assignment_date": "2025-02-01T00:59:59Z",
+                  "assignment_day": 153,
+                  "submitted_date": "2024-09-18T11:59:21Z",
+                  "submitted_day": 17,
+                  "graded": true,
+                  "grader_name": "Adel Barout",
+                  "graded_date": "2024-09-18T11:59:31Z",
+                  "score": 37.5,
+                  "points": 37,
+                  "flow": 0.0,
+                  "comments": [
+                    {
+                      "author_id": 248788,
+                      "author_name": "Adel Barout",
+                      "date": "2024-09-18T11:59:32Z",
+                      "comment": "dxw"
+                    }
+                  ],
+                  "rubrics": []
+                }
+              ]
+            },
+            {
+              "name": "BIM DITR - Opdracht 3 (week 17-18) - Executie van de digitale strategie van Medux, definitief adviesrapport en eindpresentatie",
+              "tag": "328151",
+              "grading_type": "points",
+              "points": 25,
+              "flow": 0.27,
+              "submissions": [
+                {
+                  "id": 19294281,
+                  "assignment_group_id": 83195,
+                  "assignment_id": 328151,
+                  "student_id": 51595,
+                  "assignment_name": "BIM DITR - Opdracht 3 (week 17-18) - Executie van de digitale strategie van Medux, definitief adviesrapport en eindpresentatie",
+                  "assignment_date": "2025-02-01T00:59:59Z",
+                  "assignment_day": 153,
+                  "submitted_date": "2024-09-18T11:59:54Z",
+                  "submitted_day": 17,
+                  "graded": true,
+                  "grader_name": "Adel Barout",
+                  "graded_date": "2024-09-18T12:00:09Z",
+                  "score": 25.0,
+                  "points": 25,
+                  "flow": 0.0,
+                  "comments": [
+                    {
+                      "author_id": 248788,
+                      "author_name": "Adel Barout",
+                      "date": "2024-09-18T12:00:11Z",
+                      "comment": "dw"
+                    }
+                  ],
+                  "rubrics": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "student_level_moments": {
+        "name": "level_moments",
+        "assignment_groups": [
+          83203
+        ],
+        "submissions": []
+      }
+    }
+  ]
+}

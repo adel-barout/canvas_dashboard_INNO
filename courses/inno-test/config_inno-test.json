@@ -1,0 +1,333 @@
+{
+  "name": "TEST - Innovation Semester",
+  "student_count": 0,
+  "days_in_semester": 152,
+  "sections": [
+    {
+      "id": 57633,
+      "name": "BIM",
+      "role": "BIM"
+    },
+    {
+      "id": 57632,
+      "name": "CSC_C",
+      "role": "CSC_C"
+    },
+    {
+      "id": 57630,
+      "name": "SD_B",
+      "role": "SD_B"
+    },
+    {
+      "id": 57631,
+      "name": "TI",
+      "role": "TI"
+    }
+  ],
+  "attendance": null,
+  "level_moments": {
+    "name": "level_moments",
+    "title": "Peilmomenten",
+    "levels": "progress",
+    "moments": [
+      "Sprint 4",
+      "Sprint 7",
+      "Beoordeling"
+    ],
+    "assignment_groups": [
+      83203
+    ]
+  },
+  "perspectives": {
+    "team": {
+      "name": "team",
+      "title": "Team",
+      "levels": "samen",
+      "show_points": false,
+      "show_flow": true,
+      "assignment_groups": [
+        83192
+      ]
+    },
+    "gilde": {
+      "name": "gilde",
+      "title": "Gilde",
+      "levels": "samen5",
+      "show_points": false,
+      "show_flow": true,
+      "assignment_groups": [
+        83193
+      ]
+    },
+    "kennis": {
+      "name": "kennis",
+      "title": "Kennis",
+      "levels": "niveau",
+      "show_points": true,
+      "show_flow": false,
+      "assignment_groups": [
+        83194,
+        83195,
+        83196,
+        83197,
+        83198,
+        83199,
+        83200
+      ]
+    }
+  },
+  "roles": [
+    {
+      "short": "AI",
+      "name": "AI - Engineer",
+      "major": "Artificial Intelligence",
+      "btn_color": "border-warning",
+      "assignment_groups": [
+        83194
+      ],
+      "students": []
+    },
+    {
+      "short": "BIM",
+      "name": "Business Analist",
+      "major": "Business and IT Management",
+      "btn_color": "border-success",
+      "assignment_groups": [
+        83195
+      ],
+      "students": []
+    },
+    {
+      "short": "CSC_C",
+      "name": "Cloud",
+      "major": "Cyber Security and Cloud",
+      "btn_color": "border-light",
+      "assignment_groups": [
+        83196
+      ],
+      "students": []
+    },
+    {
+      "short": "CSC_S",
+      "name": "Security",
+      "major": "Cyber Security and Cloud",
+      "btn_color": "border-danger",
+      "assignment_groups": [
+        83197
+      ],
+      "students": []
+    },
+    {
+      "short": "SD_B",
+      "name": "Back-end developer",
+      "major": "Software Development",
+      "btn_color": "border-dark",
+      "assignment_groups": [
+        83198
+      ],
+      "students": []
+    },
+    {
+      "short": "SD_F",
+      "name": "Front-end developer",
+      "major": "Software Development",
+      "btn_color": "border-primary",
+      "assignment_groups": [
+        83199
+      ],
+      "students": []
+    },
+    {
+      "short": "TI",
+      "name": "TI - Engineer",
+      "major": "Technische Informatica",
+      "btn_color": "border-warning",
+      "assignment_groups": [
+        83200
+      ],
+      "students": []
+    }
+  ],
+  "teachers": [
+    {
+      "id": 217262,
+      "name": "Ayoub Ahdoudi",
+      "initials": "AA",
+      "teams": []
+    },
+    {
+      "id": 252798,
+      "name": "mohammed Ben Ali",
+      "initials": "MBA",
+      "teams": []
+    },
+    {
+      "id": 248788,
+      "name": "Adel Barout",
+      "initials": "AB",
+      "teams": []
+    },
+    {
+      "id": 253162,
+      "name": "Matthew Bijlhout",
+      "initials": "MB",
+      "teams": []
+    },
+    {
+      "id": 227403,
+      "name": "Losseny Diaby",
+      "initials": "LD",
+      "teams": []
+    },
+    {
+      "id": 2794,
+      "name": "Berend Wilkens",
+      "initials": "BW",
+      "teams": []
+    }
+  ],
+  "assignment_groups": [
+    {
+      "name": "TEAM",
+      "id": 83192,
+      "role": [],
+      "strategy": "EXP_POINTS",
+      "lower_c": 0,
+      "upper_c": 4,
+      "total_points": 0,
+      "lower_points": 43,
+      "upper_points": 55,
+      "bandwidth": null
+    },
+    {
+      "name": "GILDE",
+      "id": 83193,
+      "role": [],
+      "strategy": "LIN_POINTS",
+      "lower_c": 0,
+      "upper_c": 0,
+      "total_points": 0,
+      "lower_points": 49,
+      "upper_points": 77,
+      "bandwidth": null
+    },
+    {
+      "name": "AI - AI Engineer",
+      "id": 83194,
+      "role": [],
+      "strategy": "POINTS",
+      "lower_c": 0,
+      "upper_c": 0,
+      "total_points": 200.0,
+      "lower_points": 110,
+      "upper_points": 160,
+      "bandwidth": null
+    },
+    {
+      "name": "BIM - Business Analist",
+      "id": 83195,
+      "role": [],
+      "strategy": "POINTS",
+      "lower_c": 0,
+      "upper_c": 0,
+      "total_points": 200.0,
+      "lower_points": 110,
+      "upper_points": 160,
+      "bandwidth": null
+    },
+    {
+      "name": "CSC - Cloud",
+      "id": 83196,
+      "role": [],
+      "strategy": "POINTS",
+      "lower_c": 0,
+      "upper_c": 0,
+      "total_points": 200.0,
+      "lower_points": 110,
+      "upper_points": 160,
+      "bandwidth": null
+    },
+    {
+      "name": "CSC - Security",
+      "id": 83197,
+      "role": [],
+      "strategy": "POINTS",
+      "lower_c": 0,
+      "upper_c": 0,
+      "total_points": 200.0,
+      "lower_points": 110,
+      "upper_points": 160,
+      "bandwidth": null
+    },
+    {
+      "name": "SD-Backend",
+      "id": 83198,
+      "role": [],
+      "strategy": "POINTS",
+      "lower_c": 0,
+      "upper_c": 0,
+      "total_points": 200.0,
+      "lower_points": 110,
+      "upper_points": 160,
+      "bandwidth": null
+    },
+    {
+      "name": "SD - Frontend",
+      "id": 83199,
+      "role": [],
+      "strategy": "POINTS",
+      "lower_c": 0,
+      "upper_c": 0,
+      "total_points": 200.0,
+      "lower_points": 110,
+      "upper_points": 160,
+      "bandwidth": null
+    },
+    {
+      "name": "TI - Embedded",
+      "id": 83200,
+      "role": [],
+      "strategy": "POINTS",
+      "lower_c": 0,
+      "upper_c": 0,
+      "total_points": 201.0,
+      "lower_points": 110,
+      "upper_points": 160,
+      "bandwidth": null
+    },
+    {
+      "name": "Peilmomenten",
+      "id": 83203,
+      "role": [],
+      "strategy": "POINTS",
+      "lower_c": 0,
+      "upper_c": 0,
+      "total_points": 136.0,
+      "lower_points": 0,
+      "upper_points": 0,
+      "bandwidth": null
+    }
+  ],
+  "student_groups": [
+    {
+      "id": 92606,
+      "name": "001 - Projectgroep A",
+      "teachers": [],
+      "students": []
+    },
+    {
+      "id": 92607,
+      "name": "002 - Projectgroep B",
+      "teachers": [],
+      "students": []
+    },
+    {
+      "id": 92608,
+      "name": "003 - Projectgroep C",
+      "teachers": [],
+      "students": []
+    }
+  ],
+  "slb_groups": [],
+  "students": []
+}
