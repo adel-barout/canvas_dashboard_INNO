@@ -10,6 +10,8 @@ from keycloak_config import keycloak_openid
 app = Flask(__name__)
 app.secret_key = 'your_random_generated_secret_key' # Change this!
 
+
+# Teacher Dashboard
 @app.route("/")
 def main():
     # Use glob to find all HTML files matching the pattern
@@ -23,18 +25,6 @@ def main():
         print(directory)
     return send_from_directory(directories_list[0], 'index.html')
 
-# login requests
-@app.route("/login")
-def login():
-    return send_from_directory('login', 'index.html')
-
-@app.route('/login/<path:filename>')
-def serve_login_files(filename):
-    return send_from_directory('login', filename)
-
-@app.route('/login/images/<path:filename>')
-def serve_login_images(filename):
-    return send_from_directory('login/images', filename)
 
 @app.route("/<path:filename>")
 def main_serve(filename):
@@ -130,9 +120,25 @@ def serve_plotly(filename):
     print(f"Full URL Path: {directories_list[0] + new_path} - {filez}")
     return send_from_directory(directories_list[0] + new_path, filez)
 
+# Acces to images an css for login page
+@app.route('/login/<path:filename>')
+def serve_login_files(filename):
+    return send_from_directory('login', filename)
+
+@app.route('/login/images/<path:filename>')
+def serve_login_images(filename):
+    return send_from_directory('login/images', filename)
 
 
+# Login Requests
 
+# Login html
+
+@app.route("/login")
+def login_page():
+    return send_from_directory('login', 'index.html')
+
+# Login postman
 @app.route('/auth/login', methods=['POST'])
 def login():
     data = request.json
@@ -158,6 +164,7 @@ def login():
         # Fout bij authenticatie, stuur een foutmelding terug
         return jsonify({'message': 'Invalid username or password'}), 401
 
+# security check
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -173,6 +180,7 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+# protected route
 @app.route('/protected')
 @login_required
 def protected():
