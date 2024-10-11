@@ -3,5 +3,8 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.9 (canvas_dashboard_INNO)" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.9 (canvas_dashboard_INNO)" project-jdk-type="Python SDK" />
+  <component name="Black">
+    <option name="sdkName" value="Python 3.10 (inno)" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (inno)" project-jdk-type="Python SDK" />
 </project>

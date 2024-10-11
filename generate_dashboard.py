@@ -1,16 +1,13 @@
 import json
 import sys
 
-from canvasapi import Canvas
-
 from lib.build_totals import build_totals
 from lib.build_bootstrap import build_bootstrap_general
 from lib.build_late import build_late_list
 from lib.lib_bootstrap import load_templates
-from lib.lib_date import get_actual_date, API_URL
+from lib.lib_date import get_actual_date
 from lib.plot_totals import plot_werkvoorraad, plot_voortgang
-from lib.file import read_course, read_start, read_results, read_progress, read_course_instance, read_workload, \
-    read_levels_from_canvas, read_levels
+from lib.file import read_course, read_start, read_results, read_progress, read_levels, read_course_instance, read_workload
 from model.WorkloadDay import WorkloadDay
 
 
@@ -85,7 +82,6 @@ def init_coaches_dict(a_course):
                 teacher = a_course.find_teacher(teacher_id)
                 l_coaches[teacher.id] = {'count': {}, 'teacher': teacher}
     l_coaches = dict(sorted(l_coaches.items(), key=lambda item: get_initials(item)))
-    # print("GD81 -", l_coaches)
     return l_coaches
 
 
@@ -102,8 +98,9 @@ def main(instance_name):
     level_series = read_levels("levels.json")
 
     team_coaches = init_coaches_dict(course)
-    # for team_coach in team_coaches.values():
-        # print("GD04 -", team_coach["teacher"])
+    for team_coach in team_coaches.values():
+        print("GD04 -", team_coach["teacher"])
+
     if instances.is_instance_of("inno_courses"):
         peilen = {}
         for peil in course.level_moments.moments:

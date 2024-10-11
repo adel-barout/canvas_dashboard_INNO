@@ -1,10 +1,12 @@
 import csv
 import json
 import os
+
 from model.ProgressHistory import ProgressHistory
 from model.Result import Result
 from model.CourseConfig import CourseConfig
 from model.Start import Start
+from model.Submission import Submission
 from model.TeamsApi import TeamsApi
 from model.WorkloadHistory import WorkloadHistory
 from model.instance.CourseInstances import CourseInstances
@@ -107,36 +109,3 @@ def read_file_list(file_list_file_name):
     with open(file_list_file_name, mode='r', encoding="utf-8") as file_list_file:
         result = json.load(file_list_file)
         return result
-
-def remove_html_tags(text):
-    """Remove html tags from a string"""
-    import re
-    clean = re.compile('<.*?>')
-    return re.sub(clean, '', text)
-
-
-def read_config_from_canvas(canvas_course):
-    print("F021 - read config_file from Canvas", "config-dot-json")
-    page = canvas_course.get_page("config-dot-json")
-    config_file = remove_html_tags(page.body)
-    data = json.loads(config_file)
-    return CourseConfig.from_dict(data)
-
-
-def read_levels_from_canvas(canvas_course):
-    print("F022 - read levels_file from Canvas", "levels-dot-json")
-    page = canvas_course.get_page("levels-dot-json")
-    config_file = remove_html_tags(page.body)
-    data = json.loads(config_file)
-    level_series = LevelSeries.from_dict(data)
-    return level_series
-
-
-def read_plotly(plotly_file_name):
-    with open(plotly_file_name, mode='r', encoding="utf-8") as file_result:
-        lines = file_result.readlines()
-        result_str = ""
-        for line in lines:
-            result_str += line.strip()
-        return result_str
-

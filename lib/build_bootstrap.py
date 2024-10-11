@@ -1,25 +1,24 @@
 from lib.build_bootstrap_structure import build_bootstrap_release_planning
-from lib.build_plotly_hover import get_hover_comments
 from lib.lib_date import get_date_time_loc
 from lib.translation_table import translation_table
 
 
-def build_student_button(course, student, templates, level_series):
+def build_student_button(course, student, templates, labels_colors):
     role = course.get_role(student.role)
     if not role:
         return ""
     color = role.btn_color
-    index_file_name = "./students/" + student.name.replace(" ", "%20") + "%20index.html"
-    index_asci_file_name = index_file_name.translate(translation_table)
-    l_progress_color = level_series.level_series['progress'].levels[str(student.progress)].color
+    file_name = "./plotly/" + student.name.replace(" ", "%20") + ".html"
+    #       file_name = plot_path + student.name + ".html"
+    asci_file_name = file_name.translate(translation_table)
+    l_progress_color = labels_colors.level_series['progress'].levels[str(student.progress)].color
     return templates['student'].substitute(
         {'btn_color': color,
          'progress_color': l_progress_color,
          'student_name': student.name,
          'student_number': student.number,
          'student_role': role.name,
-         'frame_right': index_asci_file_name
-        })
+         'student_file': asci_file_name})
 
 
 def build_bootstrap_canvas_overzicht(a_templates, a_perspectives, a_student_totals):
@@ -35,7 +34,7 @@ def build_bootstrap_canvas_overzicht(a_templates, a_perspectives, a_student_tota
     return overzicht_html_string
 
 
-def build_bootstrap_group(a_start, a_course, a_results, a_templates, level_series):
+def build_bootstrap_group(a_start, a_course, a_results, a_templates, a_labels_colors):
     # coaches = {}
     groups_html_string = ''
     for group in a_course.student_groups:
@@ -55,8 +54,8 @@ def build_bootstrap_group(a_start, a_course, a_results, a_templates, level_serie
             if l_student is None:
                 print("BB05 - ERROR Student not found in results", student, "re-run generate_results")
             else:
-                # print('BB07 -', l_student.name, "[", l_student.number, "]")
-                students_html_string += build_student_button(a_course, l_student, a_templates, level_series)
+                print('BB07 -', l_student.name, "[", l_student.number, "]")
+                students_html_string += build_student_button(a_course, l_student, a_templates, a_labels_colors)
         if coaches:
             group_html_string = a_templates['group'].substitute(
                 {'selector_type': 'coach', 'selector': coaches, 'student_group_name': group.name + coaches_string,
@@ -70,7 +69,7 @@ def build_bootstrap_group(a_start, a_course, a_results, a_templates, level_serie
     return groups_html_string
 
 
-def build_bootstrap_role(a_course, a_results, a_templates, level_series):
+def build_bootstrap_role(a_course, a_results, a_templates, a_labels_colors):
     roles_html_string = ''
     for role in a_course.roles:
         students_html_string = ''
@@ -79,7 +78,7 @@ def build_bootstrap_role(a_course, a_results, a_templates, level_series):
             if l_student is None:
                 print("BB11 - Student niet gevonden in resultaten", student)
             else:
-                students_html_string += build_student_button(a_course, l_student, a_templates, level_series)
+                students_html_string += build_student_button(a_course, l_student, a_templates, a_labels_colors)
         titel = role.name + ", " + str(len(role.students)) + " studenten"
         role_html_string = a_templates['group'].substitute(
             {'selector_type': 'role_view', 'selector': role.short, 'student_group_name': titel,
@@ -88,14 +87,14 @@ def build_bootstrap_role(a_course, a_results, a_templates, level_series):
     return roles_html_string
 
 
-def build_bootstrap_progress(a_start, a_course, a_results, a_templates, level_series):
+def build_bootstrap_progress(a_start, a_course, a_results, a_templates, a_labels_colors):
     progress_html_string = ''
-    for level in level_series.level_series['progress'].levels:
+    for level in a_labels_colors.level_series['progress'].levels:
         students_html_string = ''
         for student in a_results.students:
             if str(student.progress) == str(level):
-                students_html_string += build_student_button(a_course, student, a_templates, level_series)
-        titel = level_series.level_series['progress'].levels[level].label + ", " + " studenten"
+                students_html_string += build_student_button(a_course, student, a_templates, a_labels_colors)
+        titel = a_labels_colors.level_series['progress'].levels[level].label + ", " + " studenten"
         level_html_string = a_templates['group'].substitute(
             {'selector_type': 'progress_view', 'selector': 'level', 'student_group_name': titel,
              'students': students_html_string})
@@ -103,14 +102,14 @@ def build_bootstrap_progress(a_start, a_course, a_results, a_templates, level_se
     return progress_html_string
 
 
-def build_bootstrap_slb(a_start, a_course, a_results, a_templates, level_series):
+def build_bootstrap_slb(a_start, a_course, a_results, a_templates, a_labels_colors):
     l_groups_html_string = ''
     for group in a_course.slb_groups:
         # print("-", group.name)
         students_html_string = ''
         for student in group.students:
             l_student = a_results.find_student(student.id)
-            students_html_string += build_student_button(a_course, l_student, a_templates, level_series)
+            students_html_string += build_student_button(a_course, l_student, a_templates, a_labels_colors)
 
         group_html_string = a_templates['group'].substitute(
             {'selector_type': 'coach', 'selector': 'Leeg', 'student_group_name': group.name,
@@ -120,6 +119,7 @@ def build_bootstrap_slb(a_start, a_course, a_results, a_templates, level_series)
 
     return l_groups_html_string
 
+# build_bootstrap_release_planning
 
 def write_release_planning(a_start, a_templates, a_assignment_group, a_file_name):
     list_html_string = ""
@@ -148,26 +148,48 @@ def write_release_planning(a_start, a_templates, a_assignment_group, a_file_name
         file_list.write(file_html_string)
 
 
+# def build_bootstrap_release_planning(a_instances, a_start, a_course, a_templates, a_labels_colors):
+#     html_string = ""
+#     buttons_planning_html_string = ""
+#     for assignment_group in a_course.assignment_groups:
+#         file_name = "release_planning_" + str(assignment_group.id) + ".html"
+#         buttons_planning_html_string += a_templates["selector"].substitute(
+#             {'selector_file': file_name,
+#              'selector': assignment_group.name}) + "<br>"
+#         write_release_planning(a_start, a_templates, assignment_group, a_instances.get_html_path() + file_name)
+#
+#     buttons_flow_html_string = ""
+#     for assignment_group in a_course.assignment_groups:
+#         file_name = "bandwidth_" + str(assignment_group.id) + ".html"
+#         buttons_flow_html_string += a_templates["selector"].substitute(
+#             {'selector_file': file_name,
+#              'selector': assignment_group.name}) + "<br>"
+#         process_bandwidth(a_instances, a_start, a_course, assignment_group, a_labels_colors)
+#
+#
+#     html_string += a_templates["release_planning"].substitute({'buttons_planning': buttons_planning_html_string, 'buttons_flow': buttons_flow_html_string})
+#     return html_string
 
-def build_bootstrap_students_tabs(a_instances, a_start, a_course, a_results, a_templates, level_series, a_totals):
+
+def build_bootstrap_students_tabs(a_instances, a_start, a_course, a_results, a_templates, a_labels_colors, a_totals):
     tabs = ["Groepen"]
     if len(a_course.roles) > 1:
         tabs.append("Rollen")
     tabs.append("Voortgang")
-    # if a_start.slb_groep_name:
-    #     tabs.append("SLB")
+    if a_start.slb_groep_name:
+        tabs.append("SLB")
     tabs.append("Overzichten")
     tabs.append("Release Planning")
     html_tabs = ""
     for tab in tabs:
         if tab == "Groepen":
-            students_html_string = build_bootstrap_group(a_start, a_course, a_results, a_templates, level_series)
+            students_html_string = build_bootstrap_group(a_start, a_course, a_results, a_templates, a_labels_colors)
         elif tab == "Rollen":
-            students_html_string = build_bootstrap_role(a_course, a_results, a_templates, level_series)
+            students_html_string = build_bootstrap_role(a_course, a_results, a_templates, a_labels_colors)
         elif tab == "Voortgang":
-            students_html_string = build_bootstrap_progress(a_start, a_course, a_results, a_templates, level_series)
-        # elif tab == "SLB":
-        #     students_html_string = build_bootstrap_slb(a_start, a_course, a_results, a_templates, a_labels_colors)
+            students_html_string = build_bootstrap_progress(a_start, a_course, a_results, a_templates, a_labels_colors)
+        elif tab == "SLB":
+            students_html_string = build_bootstrap_slb(a_start, a_course, a_results, a_templates, a_labels_colors)
         elif tab == "Overzichten":
             students_html_string = a_templates['overzichten'].template
             perspectives = []
@@ -175,7 +197,7 @@ def build_bootstrap_students_tabs(a_instances, a_start, a_course, a_results, a_t
                 perspectives.append(perspective)
             students_html_string += build_bootstrap_canvas_overzicht(a_templates, perspectives, a_totals)
         elif tab == "Release Planning":
-            students_html_string = build_bootstrap_release_planning(a_instances, a_start, a_course, a_templates, level_series)
+            students_html_string = build_bootstrap_release_planning(a_instances, a_start, a_course, a_templates, a_labels_colors)
         else:
             pass
         html_tab = ""
@@ -193,9 +215,9 @@ def get_initials(item):
     return item[1].initials
 
 
-def build_bootstrap_general(a_instances, a_start, a_course, a_results, a_templates, a_coaches, level_series, a_totals):
+def build_bootstrap_general(a_instances, a_start, a_course, a_results, a_templates, a_coaches, a_labels_colors, a_totals):
     l_semester_day = a_results.actual_day
-    tabs_html_string = build_bootstrap_students_tabs(a_instances, a_start, a_course, a_results, a_templates, level_series,
+    tabs_html_string = build_bootstrap_students_tabs(a_instances, a_start, a_course, a_results, a_templates, a_labels_colors,
                                                      a_totals)
 
     coaches_html_string = ''

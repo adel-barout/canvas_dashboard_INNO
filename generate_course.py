@@ -4,7 +4,7 @@ import sys
 from canvasapi import Canvas
 from lib.lib_bandwidth import bandwidth_builder, bandwidth_builder_attendance
 from lib.lib_date import API_URL, get_date_time_obj, date_to_day, get_actual_date
-from lib.file import read_start, read_course_instance, read_config_from_canvas
+from lib.file import read_start, read_config, read_course_instance
 from model.Assignment import Assignment
 from model.Criterion import Criterion
 from model.Rating import Rating
@@ -101,18 +101,20 @@ def main(instance_name):
         instances.current_instance = instance_name
     print("GC02 -", "Instance:", instances.current_instance)
     start = read_start(instances.get_start_file_name())
-    canvas = Canvas(API_URL, start.api_key)
-    canvas_course = canvas.get_course(start.canvas_course_id)
-    user = canvas.get_current_user()
-    print("GC03 -", user.name)
-    config = read_config_from_canvas(canvas_course)
+    config = read_config(instances.get_config_file_name(instances.current_instance))
     if config.attendance is not None:
         attendance = get_attendance(config.attendance)
         if attendance is not None:
             config.attendance = attendance
-
+    # for teacher in config.teachers:
+    #     print("GC04 -", teacher)
+    # print("GC02 -", "Config", config)
+    # Initialize a new Canvas object
+    canvas = Canvas(API_URL, start.api_key)
+    user = canvas.get_current_user()
+    print("GC03 -", user.name)
     uses_assignment_groups = get_uses_assignment_groups(config)
-
+    canvas_course = canvas.get_course(start.canvas_course_id)
     # Ophalen Assignments bij de AssignmentsGroups
     canvas_assignment_groups = canvas_course.get_assignment_groups(include=['assignments', 'overrides', 'online_quiz'])
     for canvas_assignment_group in canvas_assignment_groups:
@@ -152,24 +154,21 @@ def main(instance_name):
                     print(message)
                     continue
                 if canvas_assignment.overrides:
-                    new_assignment_date = start.start_date
                     for overrides in canvas_assignment.overrides:
                         unlock_date, assignment_date = get_dates(start, overrides)
-                        if assignment_date > new_assignment_date:
-                            new_assignment_date = assignment_date
                         if hasattr(overrides, "course_section_id"):
                             section_id = overrides.course_section_id
                         else:
                             section_id = 0
                 else:
-                    unlock_date, new_assignment_date = get_dates(start, canvas_assignment)
+                    unlock_date, assignment_date = get_dates(start, canvas_assignment)
                     section_id = 0
 
                 assignment = Assignment(canvas_assignment.id, canvas_assignment.name,
                                         canvas_assignment.assignment_group_id, section_id,
                                         canvas_assignment.grading_type, canvas_assignment.grading_standard_id,
-                                        points_possible, new_assignment_date,
-                                        unlock_date, date_to_day(start.start_date, new_assignment_date), date_to_day(start.start_date, unlock_date))
+                                        points_possible, assignment_date,
+                                        unlock_date, date_to_day(start.start_date, assignment_date))
                 if len(message) > 0:
                     assignment.messages.append(message)
                 # print(assignment)
@@ -178,7 +177,7 @@ def main(instance_name):
                 if "#" in assignment.name or "@" in assignment.name:
                     tags = get_tags(assignment.name)
                     for t in tags:
-                        # print("GC60 -", t)
+                        print("GC60 -", t)
                         if "#" in t[0]:
                             if "LU" in t:
                                 tags_lu.append(t[1:])
@@ -189,12 +188,11 @@ def main(instance_name):
                         if "@" in t[0]:
                             tags_lu.append(t[1:])
                 for tag_lu in tags_lu:
-                    # print("GC61 - LU", tag_lu)
-                    learning_outcome = config.find_learning_outcome(tag_lu)
-                    # print("GC62 - LU", learning_outcome)
-                    if learning_outcome is not None:
-                        assignment.learning_outcomes.append(learning_outcome.id)
-
+                    print("GC61 - LU", tag_lu)
+                    lu = config.find_learning_outcome(tag_lu)
+                    print("GC62 - LU", lu)
+                    if lu is not None:
+                        assignment.learning_outcomes.append(lu)
                 if assignment.grading_type == "pass_fail":
                     if hasattr(canvas_assignment, "rubric"):
                         assignment.rubrics, rubrics_points = get_rubrics(canvas_assignment.rubric)
@@ -249,14 +247,7 @@ def main(instance_name):
             print("GC51 -", assignment_group.name, "punten:", assignment_group.total_points)
         else:
             print(f"GC41 - assignment_group {canvas_assignment_group.name} is not used")
-    # collect all LU from Assignment and copy them AssignmentSequence
-    for assignment_group in config.assignment_groups:
-        for assignment_sequence in assignment_group.assignment_sequences:
-            for assignment in assignment_sequence.assignments:
-                for learning_outcome_id in assignment.learning_outcomes:
-                    learning_outcome = config.find_learning_outcome(learning_outcome_id)
-                    assignment_sequence.add_learning_outcome(learning_outcome_id)
-                    learning_outcome.assignment_sequences.append(assignment_sequence.tag)
+
     for assignment_group in config.assignment_groups:
         assignment_group.bandwidth = None
         assignment_group.assignment_sequences = sorted(assignment_group.assignment_sequences, key=lambda a: a.get_day())
