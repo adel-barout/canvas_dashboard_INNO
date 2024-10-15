@@ -14,16 +14,20 @@ app.secret_key = 'your_random_generated_secret_key' # Change this!
 # Teacher Dashboard
 @app.route("/")
 def main():
-    # Use glob to find all HTML files matching the pattern
-    matches = glob.glob('./courses/*/*/*.html')
+    # Controleer of de gebruiker is ingelogd
+    token = session.get('token', {}).get('access_token')
+    if not token:
+        return redirect('/login')  # Gebruiker is niet ingelogd, dus redirect naar de loginpagina
 
-    # Get unique directories that contain the HTML files
-    directories = set(os.path.dirname(match) for match in matches)
-    directories_list = list(directories)
-    # Print the directories
-    for directory in directories_list:
-        print(directory)
-    return send_from_directory(directories_list[0], 'index.html')
+    try:
+        # Verifieer het token om te controleren of de sessie geldig is
+        user_info = keycloak_openid.userinfo(token)
+        request.user = user_info
+    except KeycloakAuthenticationError:
+        return redirect('/login')  # Token is ongeldig, dus redirect naar de loginpagina
+
+    # Gebruiker is ingelogd en token is geldig, dus doorverwijzen naar /protected
+    return redirect('/protected')
 
 
 @app.route("/<path:filename>")
@@ -189,7 +193,17 @@ def login_required(f):
 @app.route('/protected')
 @login_required
 def protected():
-    return f"Welcome, {request.user['preferred_username']}! You are authenticated."
+    # Use glob to find all HTML files matching the pattern
+    matches = glob.glob('./courses/*/*/*.html')
+
+    # Get unique directories that contain the HTML files
+    directories = set(os.path.dirname(match) for match in matches)
+    directories_list = list(directories)
+    # Print the directories
+    for directory in directories_list:
+        print(directory)
+    return send_from_directory(directories_list[0], 'index.html')
+
 
 
 if __name__ == '__main__':
